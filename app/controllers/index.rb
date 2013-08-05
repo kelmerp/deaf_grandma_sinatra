@@ -14,13 +14,12 @@ end
 post '/grandma' do
   # "Implement the /grandma route yourself.<br>Params: <code>#{params.inspect}</code>"
   
-
-  @input = params[:user_input]
-  if @input == @input.upcase
-    @grandma = "NO, NOT SINCE 1983!"
-  elsif @input != @input.upcase
-    @grandma = "HUH?! SPEAK UP, SONNY!"
+  input = params[:user_input]
+  if input == input.upcase
+    grandma = "NO, NOT SINCE 1983!"
+  elsif input != input.upcase
+    grandma = "HUH?! SPEAK UP, SONNY!"
   end
 
-  erb :index
+  redirect to('/?grandma=' + grandma)
 end
